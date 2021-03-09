@@ -1,45 +1,39 @@
 # Program that creates new students and views students
 # Author: Cormac Hennigan
 
+students= []
 def displayMenu():
-    print("What would you like to do?")
+    print("what would you like to do?")
     print("\t(a) Add new student")
     print("\t(v) View students")
+    print("\t(s) Save students")
     print("\t(q) Quit")
-    choice = input("Type one letter (a/v/q):").strip()
+    choice = input("type one letter (a/v/s/q):").strip()
     return choice
 
-# choice = displayMenu()
-# print("you chose {}".format(choice))
+def doAdd(students):
+ # you have code here to add
+    print("in adding")
 
-def doAdd():
-    currentStudent = {}
-    currentStudent["name"]=input("enter name : ")
-    currentStudent["modules"]= readModules()
-    students.append(currentStudent)
+def doView(students):
+ # you have code here to view
+    print("in viewing")
 
-def readModules():
-    modules = []
-    moduleName = input("\tEnter the first Module name (blank to quit)").strip
+def doSave(students):
+#you will put the call to save dict here
+    print("in save")
 
-def displayModules(modules):
-    print ("\tName \tGrade")
-    for module in modules:
-        print("\t{} \t{}".format(module["name"], module["grade"]))
-
-def doView():
-    for currentStudent in students:
-        print(currentStudent["name"])
-        displayModules(currentStudent["modules"])
-
-students= []
+#main program
 choice = displayMenu()
-while (choice !="q"):
-    if (choice == "a"):
-        doAdd()
-    elif (choice == "v"):
-        doView()
-    elif (choice != "q"):
-        print("\n\nplease select either a,v or q")
-    choice = displayMenu()
-        
+while(choice != 'q'):
+ # we could do this with lamda functions
+ # I am keeping this basic for the moment
+    if choice == 'a':
+        doAdd(students)
+    elif choice == 'v':
+        doView(students)
+    elif choice == 's':
+        doSave(students)
+    elif choice !='q':
+        print("\n\nPlease select either a,v,s or q")
+    choice=displayMenu()
